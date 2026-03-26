@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="10" fill="#1a2e3b"/>
+  <!-- Water wave -->
+  <path d="M8 40 Q16 34 24 40 Q32 46 40 40 Q48 34 56 40 L56 56 L8 56 Z" fill="#2a7a9e" opacity="0.7"/>
+  <path d="M8 44 Q16 38 24 44 Q32 50 40 44 Q48 38 56 44 L56 56 L8 56 Z" fill="#7ecae0" opacity="0.5"/>
+  <!-- 4S text -->
+  <text x="32" y="36" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">4S</text>
+</svg>
