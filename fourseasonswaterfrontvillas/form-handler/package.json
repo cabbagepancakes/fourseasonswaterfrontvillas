@@ -1,9 +1,0 @@
-{
-  "name": "fourseasons-form-handler",
-  "version": "1.0.0",
-  "description": "Contact form handler for Four Seasons Waterfront Villas",
-  "main": "server.js",
-  "dependencies": {
-    "express": "^4.18.2"
-  }
-}
