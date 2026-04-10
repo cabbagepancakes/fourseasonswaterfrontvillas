@@ -45,7 +45,7 @@ GA4 Measurement ID: `G-1Q2DJEDD4H` — added to all 4 pages.
 
 Sends via Postmark API. Config is in `form-handler/server.js`:
 - **From:** noreply@fortewebdesign.com.au
-- **To:** june.mason2@bigpond.com
+- **To:** Cassandra.mason2@bigpond.com
 - **Endpoint:** POST /api/contact
 
 ## Local Development
