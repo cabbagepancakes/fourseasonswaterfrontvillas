@@ -178,43 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // -----------------------------------------------
-  // CONTACT FORM (basic client-side)
-  // -----------------------------------------------
-  const contactForm = document.getElementById('contact-form');
-  const successMsg  = document.getElementById('form-success');
-
-  if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = contactForm.querySelector('.btn-submit');
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
-      if (successMsg) successMsg.style.display = 'none';
-
-      try {
-        const res  = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: new FormData(contactForm),
-        });
-        const data = await res.json();
-        if (data.success) {
-          contactForm.reset();
-          if (successMsg) successMsg.style.display = 'block';
-          successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        } else {
-          alert(data.message || 'There was an issue sending your message. Please call us on 0488 99 45 45.');
-        }
-      } catch {
-        alert('Network error. Please call us on 0488 99 45 45.');
-      } finally {
-        btn.textContent = 'Send Message';
-        btn.disabled = false;
-      }
-    });
-  }
-
-  // -----------------------------------------------
   // SCROLL ANIMATIONS (lightweight AOS replacement)
   // -----------------------------------------------
   const aosEls = document.querySelectorAll('[data-aos]');
