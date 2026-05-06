@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Four Seasons Waterfront Villas – call or send a message to the hosts Cassandra and Andrew. Located at 5732 Arthur Highway, Taranna TAS 7180.">
+  <meta name="description" content="Contact Four Seasons Waterfront Villas – call or send a message to the hosts June and Andrew. Located at 5732 Arthur Highway, Taranna TAS 7180.">
   <meta name="keywords" content="contact Four Seasons Waterfront Villas, Taranna accommodation enquiry, book waterfront villa Tasmania">
   <meta name="author" content="Four Seasons Waterfront Villas">
   <meta name="robots" content="index, follow">
@@ -13,7 +13,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://fourseasonswaterfrontvillas.com.au/contact.html">
   <meta property="og:title" content="Contact Us | Four Seasons Waterfront Villas">
-  <meta property="og:description" content="Get in touch with Cassandra and Andrew at Four Seasons Waterfront Villas, Taranna TAS. Call +61 488 99 45 45 or send us a message.">
+  <meta property="og:description" content="Get in touch with June and Andrew at Four Seasons Waterfront Villas, Taranna TAS. Call +61 408 879 604 or send us a message.">
   <meta property="og:image" content="https://fourseasonswaterfrontvillas.com.au/images/Four-Seasons-Waterfront-Villas-sign-640x480.jpg">
   <meta property="og:site_name" content="Four Seasons Waterfront Villas">
   <meta property="og:locale" content="en_AU">
@@ -21,7 +21,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact Us | Four Seasons Waterfront Villas">
-  <meta name="twitter:description" content="Get in touch with Cassandra and Andrew at Four Seasons Waterfront Villas, Taranna TAS.">
+  <meta name="twitter:description" content="Get in touch with June and Andrew at Four Seasons Waterfront Villas, Taranna TAS.">
   <meta name="twitter:image" content="https://fourseasonswaterfrontvillas.com.au/images/Four-Seasons-Waterfront-Villas-sign-640x480.jpg">
 
   <title>Contact Us | Four Seasons Waterfront Villas</title>
@@ -104,7 +104,7 @@
             <i class="fas fa-phone"></i>
             <div>
               <strong>Phone</strong>
-              <a href="tel:+61488994545">+61 488 99 45 45</a>
+              <a href="tel:+61408879604">+61 408 879 604</a>
             </div>
           </div>
 
@@ -124,9 +124,11 @@
         <!-- Form column -->
         <div class="contact-form">
           <h2>Send a Message</h2>
-          <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="8b6bd8ca-167c-43d7-8290-bf1820290834">
-            <input type="checkbox" name="botcheck" style="display:none">
+          <form id="contact-form" action="https://forms.peabodydigital.com.au" method="POST">
+             <input type="hidden" name="tenant_key" value="fourseasons-81fc17f4e78a">
+              <div style="position:absolute;left:-9999px;" aria-hidden="true">
+              <label>Leave this field blank: <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+              </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="first-name">First Name</label>
@@ -153,10 +155,12 @@
               <label for="message">Message *</label>
               <textarea id="message" name="message" placeholder="Tell us about your stay — dates, number of guests, any questions…" required></textarea>
             </div>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAADKZj9SUtK87rVxR"></div>
             <button type="submit" class="btn-submit">Send Message</button>
             <div id="form-success" class="form-success">
               <i class="fas fa-check-circle"></i> Thank you! Your message has been sent. We'll be in touch soon.
             </div>
+             <div id="form-status" role="status" aria-live="polite"></div>
           </form>
         </div>
 
@@ -200,7 +204,7 @@
           <h4>Contact Us</h4>
           <ul class="footer-contact">
             <li><i class="fas fa-map-marker-alt"></i><span>5732 Arthur Highway, Taranna TAS 7180</span></li>
-            <li><i class="fas fa-phone"></i><a href="tel:+61488994545">0488 99 45 45</a></li>
+            <li><i class="fas fa-phone"></i><a href="tel:+61408879604">0408 879 604</a></li>
           </ul>
         </div>
       </div>
@@ -212,5 +216,43 @@
   </footer>
 
   <script src="js/main.js"></script>
+
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<script>
+  // Async submit with inline status — no page reload
+  document.getElementById('contact-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const status = document.getElementById('form-status');
+    const button = form.querySelector('button[type="submit"]');
+
+    button.disabled = true;
+    status.textContent = 'Sending…';
+
+    try {
+      const formData = new FormData(form);
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        status.textContent = data.message || 'Thanks — your message has been sent.';
+        form.reset();
+        // Reset Turnstile so user can submit again
+        if (window.turnstile) window.turnstile.reset();
+      } else {
+        status.textContent = data.error || 'Something went wrong. Please try again.';
+        button.disabled = false;
+      }
+    } catch (err) {
+      status.textContent = 'Network error. Please try again.';
+      button.disabled = false;
+    }
+  });
+</script>
+
 </body>
 </html>
