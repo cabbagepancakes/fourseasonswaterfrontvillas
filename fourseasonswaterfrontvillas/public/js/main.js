@@ -203,10 +203,10 @@ document.addEventListener('DOMContentLoaded', () => {
           if (successMsg) successMsg.style.display = 'block';
           successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         } else {
-          alert(data.message || 'There was an issue sending your message. Please call us on 0408 879 604.');
+          alert(data.message || 'There was an issue sending your message. Please call us on 0488 99 45 45.');
         }
       } catch {
-        alert('Network error. Please call us on 0408 879 604.');
+        alert('Network error. Please call us on 0488 99 45 45.');
       } finally {
         btn.textContent = 'Send Message';
         btn.disabled = false;
