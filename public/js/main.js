@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // TODO: insert a Google Maps Platform API key with "Places API (New)"
   // enabled. Restrict the key to this website's domain (HTTP referrer
   // restriction) and to the Places API (New) only.
-  const GOOGLE_PLACES_API_KEY = '';
+  const GOOGLE_PLACES_API_KEY = 'AIzaSyDUL52UkvBsh5HY1gstyR1NeW3ucCKKML8';
 
   const googleCard  = document.getElementById('rating-google');
   const googleScore = document.querySelector('[data-google-rating]');
