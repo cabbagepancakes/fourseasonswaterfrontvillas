@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Four Seasons Waterfront Villas – Waterfront accommodation on Norfolk Bay, Taranna. 1 hour from Hobart, close to Port Arthur. Rated 9.4 on Booking.com.">
-  <meta name="keywords" content="waterfront accommodation Tasmania, Norfolk Bay villas, Port Arthur accommodation, Taranna holiday rental, Tasman Peninsula accommodation, self-contained villas Tasmania">
+  <meta name="description" content="Four Seasons Waterfront Villas – self-contained waterfront accommodation on Little Norfolk Bay, Taranna, Tasmania. A relaxed base for exploring Port Arthur and the Tasman Peninsula.">
+  <meta name="keywords" content="waterfront accommodation Tasmania, Little Norfolk Bay villas, Port Arthur accommodation, Taranna holiday rental, Tasman Peninsula accommodation, self-contained villas Tasmania">
   <meta name="author" content="Four Seasons Waterfront Villas">
   <meta name="robots" content="index, follow">
-  
   <link rel="canonical" href="https://fourseasonswaterfrontvillas.com.au/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://fourseasonswaterfrontvillas.com.au/">
   <meta property="og:title" content="Four Seasons Waterfront Villas | Taranna, Tasmania">
-  <meta property="og:description" content="Well furnished, brilliant sunsets and very private. Waterfront accommodation on Norfolk Bay, 1 hour from Hobart. Rated 9.4 on Booking.com.">
+  <meta property="og:description" content="Self-contained waterfront accommodation on Little Norfolk Bay, Taranna. A relaxed base for exploring Port Arthur and the Tasman Peninsula.">
   <meta property="og:image" content="https://fourseasonswaterfrontvillas.com.au/images/Four-Seasons-Waterfront-Villas-2025-3.webp">
   <meta property="og:site_name" content="Four Seasons Waterfront Villas">
   <meta property="og:locale" content="en_AU">
@@ -22,7 +21,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Four Seasons Waterfront Villas | Taranna, Tasmania">
-  <meta name="twitter:description" content="Well furnished, brilliant sunsets and very private. Waterfront accommodation on Norfolk Bay, 1 hour from Hobart.">
+  <meta name="twitter:description" content="Self-contained waterfront accommodation on Little Norfolk Bay, Taranna. A relaxed base for exploring Port Arthur and the Tasman Peninsula.">
   <meta name="twitter:image" content="https://fourseasonswaterfrontvillas.com.au/images/Four-Seasons-Waterfront-Villas-2025-3.webp">
 
   <!-- Schema.org -->
@@ -31,7 +30,7 @@
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
     "name": "Four Seasons Waterfront Villas",
-    "description": "Self-contained waterfront villas on Norfolk Bay, Taranna, Tasmania. 1 hour from Hobart, 13km from Port Arthur.",
+    "description": "Self-contained waterfront villas on Little Norfolk Bay, Taranna, Tasmania. A relaxed base for exploring Port Arthur and the Tasman Peninsula.",
     "url": "https://fourseasonswaterfrontvillas.com.au",
     "telephone": "+61488994545",
     "address": {
@@ -41,12 +40,6 @@
       "addressRegion": "TAS",
       "postalCode": "7180",
       "addressCountry": "AU"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "9.4",
-      "bestRating": "10",
-      "ratingCount": "50"
     },
     "geo": {
       "@type": "GeoCoordinates",
@@ -136,11 +129,9 @@
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1>Welcome to Four Seasons Waterfront Villas</h1>
-      <p class="tagline">Well furnished, brilliant sunsets and very private.</p>
-      <div class="rating-badge">
-        <strong>9.4</strong> <span>Booking.com Reviews</span>
-      </div>
+      <h1>Four Seasons Waterfront Villas</h1>
+      <p class="tagline">Waterfront accommodation on Little Norfolk Bay</p>
+      <p class="hero-rebrand">Soon to be Isolé Little Norfolk Bay</p>
       <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
         <a href="villas.html" class="btn btn-primary">Our Villas</a>
         <a href="https://book-directonline.com/properties/fourseasonsdirect" target="_blank" class="btn btn-outline">Book Now</a>
@@ -159,12 +150,64 @@
   </section>
 
   <!-- ========================================
+       GUEST RATINGS
+  ======================================== -->
+  <section class="ratings-section" aria-labelledby="ratings-heading">
+    <div class="container">
+      <h2 class="section-title" id="ratings-heading">Highly rated by guests</h2>
+      <div class="ratings-grid">
+
+        <!-- Booking.com (static score, last updated 24 September 2026) -->
+        <div class="rating-card" id="rating-booking">
+          <div class="rating-logo"><img src="images/logo-booking.svg" alt="Booking.com" class="rating-logo-booking"></div>
+          <div class="rating-score">9.4<span class="rating-outof">/10</span></div>
+          <div class="rating-meta">Guest review score</div>
+        </div>
+
+        <!-- Expedia (static score, last updated 24 September 2026) -->
+        <div class="rating-card" id="rating-expedia">
+          <div class="rating-logo"><img src="images/logo-expedia.svg" alt="Expedia" class="rating-logo-expedia"></div>
+          <div class="rating-score">9.6<span class="rating-outof">/10</span></div>
+          <div class="rating-meta">Guest review score</div>
+        </div>
+
+        <!-- Google (live via Places API (New); API key is set in js/main.js) -->
+        <div class="rating-card" id="rating-google" data-place-id="ChIJIewp4ba9baoRPydRh2hvaBM">
+          <div class="rating-logo"><img src="images/logo-google.svg" alt="Google" class="rating-logo-google"></div>
+          <div class="rating-score" data-google-rating><span class="rating-loading">&hellip;</span></div>
+          <div class="rating-meta" data-google-count>Loading Google rating</div>
+        </div>
+
+        <!-- Tripadvisor (live widget, display only — clicks disabled) -->
+        <div class="rating-card rating-card-ta" id="rating-tripadvisor">
+          <div class="ta-widget-wrap" aria-label="Tripadvisor rating">
+            <div id="TA_cdsratingsonlynarrow956" class="TA_cdsratingsonlynarrow">
+              <ul id="j84nb2" class="TA_links kQk8yBU">
+                <li id="kGXiEtlYF9ld" class="qvpN5pNRXlmj">
+                  <a target="_blank" href="https://www.tripadvisor.com.au/Hotel_Review-g1216637-d1974224-Reviews-Four_Seasons_Waterfront_Villas-Taranna_Tasmania.html" tabindex="-1">
+                    <img src="https://www.tripadvisor.com.au/img/cdsi/img2/branding/v2/Tripadvisor_lockup_horizontal_secondary_registered-18034-2.svg" alt="Tripadvisor"/>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <script async
+              src="https://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&amp;uniq=956&amp;locationId=1974224&amp;lang=en_AU&amp;border=true&amp;display_version=2"
+              data-loadtrk
+              onload="this.loadtrk=true">
+            </script>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
        INFO BAR
   ======================================== -->
   <div class="info-bar">
     <div class="info-bar-inner">
       <span class="info-item"><i class="fas fa-map-marker-alt"></i> 5732 Arthur Highway, Taranna TAS 7180</span>
-      <span class="info-item"><i class="fas fa-star"></i> 9.4 Booking.com Rating</span>
       <span class="info-item"><i class="fas fa-users"></i> Family Friendly Accommodation</span>
     </div>
   </div>
@@ -174,15 +217,15 @@
   ======================================== -->
   <section class="intro-section">
     <div class="container">
-      <h2 class="section-title" data-aos>A quiet space with beautiful vistas</h2>
+      <h2 class="section-title" data-aos>A quiet place with beautiful vistas</h2>
       <p data-aos data-aos-delay="100">
-        Only 1 hours' drive from Hobart, the Four Seasons Waterfront Villas is located on the tranquil waters of Norfolk Bay and close by to historic Port Arthur convict site. Staying at our waterfront accommodation means you are close to the popular tourist spots.
+        Located on the waterfront at Little Norfolk Bay, Four Seasons Waterfront Villas is ideally positioned for exploring Port Arthur and the Tasman Peninsula. Enjoy a peaceful waterfront setting while staying within easy reach of the region’s historic sites, coastal walks and natural attractions.
       </p>
       <p data-aos data-aos-delay="200">
-        Our villas share a secluded block each with its own private space and direct access to the waterfront. With more space than other accommodation in the area, our light filled and tastefully decorated villas are easy to relax into.
+        Set across a peaceful waterfront property, each self-contained villa offers its own kitchen, living and dining areas, private entrance and easy access to the Little Norfolk Bay waterfront.
       </p>
       <p data-aos data-aos-delay="300">
-        There are wallabies, echidnas, Tasmanian devils and a whole host of seabirds in this area including endangered species. It is great for families old and young and wonderful for couples of all ages. One night is never enough, so make it a focus for your Tasmania trip and let these local experiences shape your future memories.
+        The Tasman Peninsula is home to an abundance of native wildlife, including wallabies, echidnas and a wide variety of birdlife. With plenty to see and do nearby, Four Seasons Waterfront Villas is a comfortable base for couples and families exploring the region.
       </p>
     </div>
   </section>
@@ -194,24 +237,24 @@
     <div class="container">
       <div class="cards-grid">
         <div class="card" data-aos>
-          <img loading="lazy" src="images/Four-Seasons-Waterfront-Villas-2025-small-12-540x360.webp" alt="Comfortable Villas">
+          <img loading="lazy" src="images/Four-Seasons-Waterfront-Villas-2025-small-12-540x360.webp" alt="Self-contained villa at Four Seasons Waterfront Villas">
           <div class="card-body">
             <h3>Comfortable Villas</h3>
-            <p>Each villa is its own complete home with kitchen, dining and living spaces. Out your door you have quick access to the waterfront for regular strolls around the foreshore.</p>
+            <p>Each villa is fully self-contained, with its own kitchen, dining and living spaces, and easy access to the Little Norfolk Bay waterfront.</p>
           </div>
         </div>
         <div class="card" data-aos data-aos-delay="100">
-          <img loading="lazy" src="images/1200x800-image25-540x360.jpg" alt="Coastal Vista">
+          <img loading="lazy" src="images/1200x800-image25-540x360.jpg" alt="Water views across Little Norfolk Bay">
           <div class="card-body">
             <h3>Coastal Vista</h3>
-            <p>Located on the waterfront, our villas give you direct access to Norfolk Bay and the beautiful coastline.</p>
+            <p>Set directly on Little Norfolk Bay, the property offers peaceful water views and easy access to the foreshore.</p>
           </div>
         </div>
         <div class="card" data-aos data-aos-delay="200">
-          <img loading="lazy" src="images/PortArthurPenitentiary-540x360.jpg" alt="Popular Location – Port Arthur">
+          <img loading="lazy" src="images/PortArthurPenitentiary-540x360.jpg" alt="Port Arthur Historic Site penitentiary">
           <div class="card-body">
-            <h3>Popular Location</h3>
-            <p>Close to Port Arthur historical convict site and other natural features in the area. Four Seasons Waterfront Villas is close by and the perfect place to stay.</p>
+            <h3>Explore the Tasman Peninsula</h3>
+            <p>Port Arthur Historic Site, spectacular coastal walks and some of Tasmania’s best-known natural attractions are all within easy reach.</p>
           </div>
         </div>
       </div>
@@ -219,48 +262,11 @@
   </section>
 
   <!-- ========================================
-       TESTIMONIALS
-  ======================================== -->
-  <section class="testimonials">
-    <div class="container">
-      <h2 class="section-title">What They Are Saying…</h2>
-      <div class="testimonial-slider">
-        <div class="testimonial-track">
-          <div class="testimonial-item">
-            <blockquote>"Very warm and cozy cabin. Spacious, excellent facilities incl kitchen utensils, bbq facilities, firepit, undercover carpark, beach access. Convenient location very close to tourist attractions in Eaglehawk Neck."</blockquote>
-            <p class="testimonial-author">— Fionna, Australia</p>
-          </div>
-          <div class="testimonial-item">
-            <blockquote>"The location was fantastic! The owners are very friendly. And a neighbour, who was also very friendly, gave us some fresh fish. The cabin had everything we needed to enjoy our stay on the Tasman Peninsula."</blockquote>
-            <p class="testimonial-author">— Ash025, Australia</p>
-          </div>
-          <div class="testimonial-item">
-            <blockquote>"The location was very handy to Port Arthur and all the attractions around that area. The villa we stayed in was very clean and had everything that we needed. This place is perfect, and situated right on the water with a lovely view."</blockquote>
-            <p class="testimonial-author">— Shandelle, Australia</p>
-          </div>
-          <div class="testimonial-item">
-            <blockquote>"A beautiful villa with lots of little extras eg coffee pod machine. The bed was very comfortable. The place has a lovely view and is very quiet and peaceful. It is an excellent location for visiting the surrounding area."</blockquote>
-            <p class="testimonial-author">— Paul, Australia</p>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-controls">
-        <button class="t-btn prev" aria-label="Previous review"><i class="fas fa-chevron-left"></i></button>
-        <button class="t-btn next" aria-label="Next review"><i class="fas fa-chevron-right"></i></button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================
-       WELCOME / HOSTS
+       BOOK CTA
   ======================================== -->
   <section class="welcome-section">
     <div class="container">
-      <h2 class="section-title" data-aos>Your Home Away From Home</h2>
-      <p data-aos data-aos-delay="100">
-        Our villas are your home away from home. Comfortable, private and with everything you need to relax and unwind on your holiday. Your hosts Cassandra and Andrew look forward to greeting you and helping make your stay a memorable one.
-      </p>
-      <a href="https://book-directonline.com/properties/fourseasonsdirect" target="_blank" class="btn btn-primary" data-aos data-aos-delay="200">Book Your Stay</a>
+      <a href="https://book-directonline.com/properties/fourseasonsdirect" target="_blank" class="btn btn-primary" data-aos>Book Your Stay</a>
     </div>
   </section>
 
@@ -272,81 +278,38 @@
       <h2 class="section-title" data-aos>Why Stay With Us</h2>
       <div class="benefits-grid">
         <div class="benefit-item" data-aos>
-          <div class="benefit-icon"><i class="fas fa-dollar-sign"></i></div>
-          <h3>Affordable Accommodation</h3>
-          <p>Our accommodation is clean, well presented and equipped with everything you need to get the most from your holiday on the Tasman Peninsula.</p>
+          <div class="benefit-icon"><i class="fas fa-house-user"></i></div>
+          <h3>Self-Contained Waterfront Accommodation</h3>
+          <p>Comfortable, well-presented villas equipped for an easy stay on the Tasman Peninsula.</p>
         </div>
         <div class="benefit-item" data-aos data-aos-delay="100">
           <div class="benefit-icon"><i class="fas fa-home"></i></div>
-          <h3>3 Superior Villas</h3>
-          <p>We have 3 separate villas, each one offers a separate kitchen, bathroom and living spaces as well as separate bedrooms. A step out the front door and you are almost on the beach.</p>
+          <h3>Three Self-Contained Villas</h3>
+          <p>Choose from our Standard Villas or Premium Waterfront Villa, each with two bedrooms, a private kitchen, bathroom and comfortable living spaces.</p>
         </div>
         <div class="benefit-item" data-aos data-aos-delay="200">
           <div class="benefit-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <h3>13KM from Port Arthur</h3>
-          <p>Located in the Tasman Peninsula there is so much to see and do. And it's all nearby. Be sure to check out our 'Nearby' link to learn more.</p>
+          <h3>Close to Port Arthur</h3>
+          <p>Ideally located for visiting Port Arthur Historic Site and exploring the walks, coastline and attractions of the Tasman Peninsula.</p>
         </div>
         <div class="benefit-item" data-aos data-aos-delay="100">
           <div class="benefit-icon"><i class="fas fa-water"></i></div>
           <h3>Little Norfolk Bay</h3>
-          <p>We are situated on Little Norfolk Bay which is part of the larger Norfolk Bay and co-joined to Frederick Henry Bay. These wide open sea water spaces are perfect for fishing or sailing.</p>
+          <p>Set on the shores of Little Norfolk Bay, the property enjoys peaceful water views and easy access to the foreshore — an ideal place to unwind after a day exploring the Tasman Peninsula.</p>
         </div>
         <div class="benefit-item" data-aos data-aos-delay="200">
           <div class="benefit-icon"><i class="fas fa-leaf"></i></div>
           <h3>Beautiful Natural Environment</h3>
-          <p>Although our natural environment would have been very harsh back in convict times, these days we can enjoy its rugged beauty. Be sure to check out the natural land formations in the area.</p>
+          <p>From sheltered bays and native wildlife to dramatic sea cliffs and coastal walks, the natural landscape is one of the Tasman Peninsula’s great attractions.</p>
         </div>
         <div class="benefit-item" data-aos data-aos-delay="300">
           <div class="benefit-icon"><i class="fas fa-binoculars"></i></div>
           <h3>Stunning Views and Scenery</h3>
-          <p>We are surrounded by natural beauty. All you have to do is walk out your front door to find yourself in it. Every day is different and brings with it new and different experiences.</p>
+          <p>Enjoy changing views across Little Norfolk Bay, from calm mornings to colourful evening skies.</p>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- ========================================
-       GALLERY
-  ======================================== -->
-  <section class="gallery-section">
-    <div class="container">
-      <h2 class="section-title" data-aos>Take a Look</h2>
-      <p class="gallery-intro" data-aos data-aos-delay="100">Light and spacious with room to stretch out and relax in. You will relax the moment you step into one of our private villas. With all the conveniences that you would expect from a home away from home.</p>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="images/Four-Seasons-Waterfront-Villas-2025-1.webp" alt="Villa interior living space">
-        </div>
-        <div class="gallery-item">
-          <img src="images/Four-Seasons-Waterfront-Villas-2025-2.webp" alt="Villa bedroom">
-        </div>
-        <div class="gallery-item">
-          <img src="images/Four-Seasons-Waterfront-Villas-2025-3.webp" alt="Villa exterior and waterfront">
-        </div>
-        <div class="gallery-item">
-          <img src="images/Four-Seasons-Waterfront-Villas-2025-4.webp" alt="Waterfront view from villa">
-        </div>
-        <div class="gallery-item">
-          <img src="images/Four-Seasons-Waterfront-Villas-2025-6.webp" alt="Norfolk Bay view">
-        </div>
-        <div class="gallery-item">
-          <img src="images/Four-Seasons-Waterfront-Villas-2025-7.webp" alt="Villa kitchen and dining">
-        </div>
-        <div class="gallery-item">
-          <img src="images/Four-Seasons-Waterfront-Villas-2025-8.webp" alt="Villa outdoor area">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================
-       LIGHTBOX
-  ======================================== -->
-  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
-    <button id="lightbox-close" class="lightbox-close" aria-label="Close">&times;</button>
-    <button id="lightbox-prev" class="lightbox-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-    <img id="lightbox-img" class="lightbox-img" src="" alt="">
-    <button id="lightbox-next" class="lightbox-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-  </div>
 
   <!-- ========================================
        FOOTER
@@ -356,7 +319,8 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img loading="lazy" src="images/four-seasons-waterfront-villas-logo-540x363.png" alt="Four Seasons Waterfront Villas">
-          <p>Waterfront accommodation on the tranquil waters of Norfolk Bay, Taranna, Tasmania. The perfect base for exploring Port Arthur and the Tasman Peninsula.</p>
+          <p>Waterfront accommodation on Little Norfolk Bay, Taranna, Tasmania. A relaxed base for exploring Port Arthur and the Tasman Peninsula.</p>
+          <p class="footer-rebrand">Soon to be Isolé Little Norfolk Bay</p>
         </div>
         <div class="footer-col">
           <h4>Navigation</h4>
@@ -379,7 +343,6 @@
       </div>
       <div class="footer-bottom">
         <span>Copyright &copy; 2026 Four Seasons Waterfront Villas</span>
-        <span>Built by: <a href="https://fortewebdesign.com.au" target="_blank">ForteWebDesign.com.au</a></span>
       </div>
     </div>
   </footer>

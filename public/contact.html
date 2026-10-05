@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Four Seasons Waterfront Villas – call or send a message to the hosts June and Andrew. Located at 5732 Arthur Highway, Taranna TAS 7180.">
+  <meta name="description" content="Contact Four Seasons Waterfront Villas – call or send a message about your stay on Little Norfolk Bay. Located at 5732 Arthur Highway, Taranna TAS 7180.">
   <meta name="keywords" content="contact Four Seasons Waterfront Villas, Taranna accommodation enquiry, book waterfront villa Tasmania">
   <meta name="author" content="Four Seasons Waterfront Villas">
   <meta name="robots" content="index, follow">
@@ -13,16 +13,16 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://fourseasonswaterfrontvillas.com.au/contact.html">
   <meta property="og:title" content="Contact Us | Four Seasons Waterfront Villas">
-  <meta property="og:description" content="Get in touch with June and Andrew at Four Seasons Waterfront Villas, Taranna TAS. Call +61 488 99 45 45 or send us a message.">
-  <meta property="og:image" content="https://fourseasonswaterfrontvillas.com.au/images/Four-Seasons-Waterfront-Villas-sign-640x480.jpg">
+  <meta property="og:description" content="Get in touch with Four Seasons Waterfront Villas, Taranna TAS. Call +61 488 99 45 45 or send us a message.">
+  <meta property="og:image" content="https://fourseasonswaterfrontvillas.com.au/images/Little-Norfolk-Bay-sunset.jpg">
   <meta property="og:site_name" content="Four Seasons Waterfront Villas">
   <meta property="og:locale" content="en_AU">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact Us | Four Seasons Waterfront Villas">
-  <meta name="twitter:description" content="Get in touch with June and Andrew at Four Seasons Waterfront Villas, Taranna TAS.">
-  <meta name="twitter:image" content="https://fourseasonswaterfrontvillas.com.au/images/Four-Seasons-Waterfront-Villas-sign-640x480.jpg">
+  <meta name="twitter:description" content="Get in touch with Four Seasons Waterfront Villas, Taranna TAS.">
+  <meta name="twitter:image" content="https://fourseasonswaterfrontvillas.com.au/images/Little-Norfolk-Bay-sunset.jpg">
 
   <title>Contact Us | Four Seasons Waterfront Villas</title>
 
@@ -38,6 +38,9 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="shortcut icon" href="images/favicon.svg">
+
+  <!-- Preload hero image (LCP) -->
+  <link rel="preload" as="image" href="images/Little-Norfolk-Bay-sunset.jpg" fetchpriority="high">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,10 +76,9 @@
   </header>
 
   <!-- PAGE HERO -->
-  <div class="page-hero" style="background-image:url('images/Four-Seasons-Waterfront-Villas-sign-640x480.jpg');">
+  <div class="page-hero" style="background-image:url('images/Little-Norfolk-Bay-sunset.jpg');background-position:center 30%;">
     <div class="page-hero-content">
       <h1>Contact Us</h1>
-      <p>We'd love to hear from you</p>
     </div>
   </div>
 
@@ -88,13 +90,13 @@
         <!-- Info column -->
         <div class="contact-info">
           <h2>Get in Touch</h2>
-          <p>If you leave your telephone number we will call you back, otherwise we will reply to your email address. We look forward to helping you plan your stay on the Tasman Peninsula.</p>
+          <p>Have a question about your stay? Send us a message and we’ll get back to you as soon as we can.</p>
 
           <div class="contact-detail">
             <i class="fas fa-map-marker-alt"></i>
             <div>
               <strong>Address</strong>
-              <a href="https://maps.google.com/?q=5732+Arthur+Highway,+Taranna+TAS+7180" target="_blank" rel="noopener">
+              <a href="https://www.google.com/maps/search/?api=1&query=Four+Seasons+Waterfront+Villas&query_place_id=ChIJIewp4ba9baoRPydRh2hvaBM" target="_blank" rel="noopener">
                 5732 Arthur Highway, Taranna TAS 7180
               </a>
             </div>
@@ -114,10 +116,6 @@
               <strong>Bookings</strong>
               <a href="https://book-directonline.com/properties/fourseasonsdirect" target="_blank" rel="noopener">Book direct online</a>
             </div>
-          </div>
-
-          <div style="margin-top:32px;">
-            <img loading="lazy" src="images/Four-Seasons-Waterfront-Villas-sign-640x480.jpg" alt="Four Seasons Waterfront Villas sign" style="border-radius:6px;width:100%;max-width:420px;">
           </div>
         </div>
 
@@ -172,9 +170,16 @@
   <section class="map-section">
     <div class="container">
       <h2 class="section-title" data-aos>Find Us</h2>
+      <!--
+        Embed is tied to the Four Seasons Waterfront Villas Google Business Profile
+        (Place ID ChIJIewp4ba9baoRPydRh2hvaBM) so the place card, rating and business
+        details are shown rather than a plain address pin.
+        Key-based alternative if preferred (needs Maps Embed API enabled on a key):
+        https://www.google.com/maps/embed/v1/place?key=YOUR_KEY&q=place_id:ChIJIewp4ba9baoRPydRh2hvaBM
+      -->
       <iframe
-        title="Four Seasons Waterfront Villas location"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2897.123456789!2d147.8631!3d-43.0452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s5732+Arthur+Highway%2C+Taranna+TAS+7180!5e0!3m2!1sen!2sau!4v1234567890"
+        title="Four Seasons Waterfront Villas on Google Maps"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2897.0!2d147.8631!3d-43.0452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xaa6dbdb6e129ec21%3A0x13686f688751273f!2sFour%20Seasons%20Waterfront%20Villas!5e0!3m2!1sen!2sau!4v1759600000000"
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade">
@@ -187,8 +192,9 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/four-seasons-waterfront-villas-logo-540x363.png" alt="Four Seasons Waterfront Villas">
-          <p>Waterfront accommodation on the tranquil waters of Norfolk Bay, Taranna, Tasmania.</p>
+          <img loading="lazy" src="images/four-seasons-waterfront-villas-logo-540x363.png" alt="Four Seasons Waterfront Villas">
+          <p>Waterfront accommodation on Little Norfolk Bay, Taranna, Tasmania. A relaxed base for exploring Port Arthur and the Tasman Peninsula.</p>
+          <p class="footer-rebrand">Soon to be Isolé Little Norfolk Bay</p>
         </div>
         <div class="footer-col">
           <h4>Navigation</h4>
@@ -205,12 +211,12 @@
           <ul class="footer-contact">
             <li><i class="fas fa-map-marker-alt"></i><span>5732 Arthur Highway, Taranna TAS 7180</span></li>
             <li><i class="fas fa-phone"></i><a href="tel:+61488994545">0488 99 45 45</a></li>
+            <li><i class="fas fa-envelope"></i><a href="contact.html">Send a message</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <span>Copyright &copy; 2026 Four Seasons Waterfront Villas</span>
-        <span>Built by: <a href="https://fortewebdesign.com.au" target="_blank">ForteWebDesign.com.au</a></span>
       </div>
     </div>
   </footer>
