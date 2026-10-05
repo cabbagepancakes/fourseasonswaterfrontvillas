@@ -69,90 +69,49 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // -----------------------------------------------
-  // TESTIMONIAL SLIDER
+  // GOOGLE RATING — Places API (New)
+  // Pulls the live rating + review count for the homepage
+  // "Highly rated by guests" strip. Nothing is hard-coded.
   // -----------------------------------------------
-  const track    = document.querySelector('.testimonial-track');
-  const tItems   = document.querySelectorAll('.testimonial-item');
-  const prevBtn  = document.querySelector('.t-btn.prev');
-  const nextBtn  = document.querySelector('.t-btn.next');
-  let tCurrent   = 0;
-  let tTimer;
+  // TODO: insert a Google Maps Platform API key with "Places API (New)"
+  // enabled. Restrict the key to this website's domain (HTTP referrer
+  // restriction) and to the Places API (New) only.
+  const GOOGLE_PLACES_API_KEY = '';
 
-  function goToTestimonial(n) {
-    tCurrent = (n + tItems.length) % tItems.length;
-    if (track) track.style.transform = `translateX(-${tCurrent * 100}%)`;
-  }
+  const googleCard  = document.getElementById('rating-google');
+  const googleScore = document.querySelector('[data-google-rating]');
+  const googleCount = document.querySelector('[data-google-count]');
 
-  function startTestimonialTimer() {
-    tTimer = setInterval(() => goToTestimonial(tCurrent + 1), 5000);
-  }
+  if (googleCard && googleScore && googleCount) {
+    const placeId = googleCard.dataset.placeId;
 
-  if (track && tItems.length > 0) {
-    prevBtn?.addEventListener('click', () => {
-      clearInterval(tTimer);
-      goToTestimonial(tCurrent - 1);
-      startTestimonialTimer();
-    });
-    nextBtn?.addEventListener('click', () => {
-      clearInterval(tTimer);
-      goToTestimonial(tCurrent + 1);
-      startTestimonialTimer();
-    });
-    startTestimonialTimer();
-  }
+    const showUnavailable = () => {
+      googleScore.innerHTML = '<span class="rating-unavailable">&ndash;</span>';
+      googleCount.textContent = 'Rating currently unavailable';
+    };
 
-  // -----------------------------------------------
-  // LIGHTBOX
-  // -----------------------------------------------
-  const lightbox    = document.getElementById('lightbox');
-  const lbImg       = document.getElementById('lightbox-img');
-  const lbClose     = document.getElementById('lightbox-close');
-  const lbPrev      = document.getElementById('lightbox-prev');
-  const lbNext      = document.getElementById('lightbox-next');
-  const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
-  let lbIndex = 0;
-
-  function openLightbox(index) {
-    lbIndex = index;
-    const img = galleryItems[lbIndex]?.querySelector('img');
-    if (img && lbImg) {
-      lbImg.src = img.src;
-      lbImg.alt = img.alt;
-    }
-    lightbox?.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    lightbox?.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function lbNavigate(dir) {
-    lbIndex = (lbIndex + dir + galleryItems.length) % galleryItems.length;
-    const img = galleryItems[lbIndex]?.querySelector('img');
-    if (img && lbImg) {
-      lbImg.src = img.src;
-      lbImg.alt = img.alt;
+    if (!GOOGLE_PLACES_API_KEY || !placeId) {
+      showUnavailable();
+    } else {
+      fetch(`https://places.googleapis.com/v1/places/${encodeURIComponent(placeId)}`, {
+        headers: {
+          'X-Goog-Api-Key':   GOOGLE_PLACES_API_KEY,
+          'X-Goog-FieldMask': 'displayName,rating,userRatingCount',
+        },
+      })
+        .then(res => res.ok ? res.json() : Promise.reject(new Error(`Places API ${res.status}`)))
+        .then(place => {
+          if (typeof place.rating !== 'number') return showUnavailable();
+          googleScore.innerHTML =
+            `<i class="fas fa-star rating-star" aria-hidden="true"></i>${place.rating.toFixed(1)}<span class="rating-outof">/5</span>`;
+          const n = place.userRatingCount;
+          googleCount.textContent = n
+            ? `${n.toLocaleString('en-AU')} Google reviews`
+            : 'Google reviews';
+        })
+        .catch(showUnavailable);
     }
   }
-
-  galleryItems.forEach((item, i) => {
-    item.addEventListener('click', () => openLightbox(i));
-  });
-
-  lbClose?.addEventListener('click', closeLightbox);
-  lbPrev?.addEventListener('click', () => lbNavigate(-1));
-  lbNext?.addEventListener('click', () => lbNavigate(1));
-  lightbox?.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox?.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') lbNavigate(-1);
-    if (e.key === 'ArrowRight') lbNavigate(1);
-  });
 
   // -----------------------------------------------
   // VILLA PAGE SLIDER
@@ -178,41 +137,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // -----------------------------------------------
-  // CONTACT FORM (basic client-side)
+  // CONTACT FORM
+  // Handled by the inline script in contact.html, which posts to
+  // the forms.peabodydigital.com.au endpoint with Turnstile.
   // -----------------------------------------------
-  const contactForm = document.getElementById('contact-form');
-  const successMsg  = document.getElementById('form-success');
-
-  if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = contactForm.querySelector('.btn-submit');
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
-      if (successMsg) successMsg.style.display = 'none';
-
-      try {
-        const res  = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: new FormData(contactForm),
-        });
-        const data = await res.json();
-        if (data.success) {
-          contactForm.reset();
-          if (successMsg) successMsg.style.display = 'block';
-          successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        } else {
-          alert(data.message || 'There was an issue sending your message. Please call us on 0488 99 45 45.');
-        }
-      } catch {
-        alert('Network error. Please call us on 0488 99 45 45.');
-      } finally {
-        btn.textContent = 'Send Message';
-        btn.disabled = false;
-      }
-    });
-  }
 
   // -----------------------------------------------
   // SCROLL ANIMATIONS (lightweight AOS replacement)
