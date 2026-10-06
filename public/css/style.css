@@ -272,7 +272,7 @@ h4 { font-size: 1.1rem; }
 .rating-logo img { height: 100%; width: auto; max-width: 160px; object-fit: contain; }
 .rating-logo .rating-logo-booking { height: 26px; }
 .rating-logo .rating-logo-expedia { height: 30px; }
-.rating-logo .rating-logo-google  { height: 32px; }
+.rating-logo .rating-logo-google-maps { height: 18px; } /* Google requires 16–19px */
 .rating-score {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
@@ -299,6 +299,11 @@ h4 { font-size: 1.1rem; }
 .rating-meta {
   font-size: 0.85rem;
   color: #666;
+}
+.rating-asat {
+  margin-top: 6px;
+  font-size: 0.72rem;
+  color: #999;
 }
 /* Tripadvisor widget: display only — clicks disabled so guests book direct */
 .rating-card-ta { padding: 18px 12px; }

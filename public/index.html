@@ -157,23 +157,27 @@
       <h2 class="section-title" id="ratings-heading">Highly rated by guests</h2>
       <div class="ratings-grid">
 
-        <!-- Booking.com (static score, last updated 24 September 2026) -->
+        <!-- Booking.com (static score — update the "as at" date when changing it) -->
         <div class="rating-card" id="rating-booking">
           <div class="rating-logo"><img src="images/logo-booking.svg" alt="Booking.com" class="rating-logo-booking"></div>
           <div class="rating-score">9.4<span class="rating-outof">/10</span></div>
           <div class="rating-meta">Guest review score</div>
+          <div class="rating-asat">As at 5 October 2026</div>
         </div>
 
-        <!-- Expedia (static score, last updated 24 September 2026) -->
+        <!-- Expedia (static score — update the "as at" date when changing it) -->
         <div class="rating-card" id="rating-expedia">
           <div class="rating-logo"><img src="images/logo-expedia.svg" alt="Expedia" class="rating-logo-expedia"></div>
           <div class="rating-score">9.6<span class="rating-outof">/10</span></div>
           <div class="rating-meta">Guest review score</div>
+          <div class="rating-asat">As at 5 October 2026</div>
         </div>
 
-        <!-- Google (live via Places API (New); API key is set in js/main.js) -->
+        <!-- Google (live via Places API (New); API key is set in js/main.js).
+             Places data shown without a map must carry the official Google Maps
+             logo, 16–19px tall, unmodified. -->
         <div class="rating-card" id="rating-google" data-place-id="ChIJIewp4ba9baoRPydRh2hvaBM">
-          <div class="rating-logo"><img src="images/logo-google.svg" alt="Google" class="rating-logo-google"></div>
+          <div class="rating-logo"><img src="images/logo-google-maps.svg" alt="Google Maps" class="rating-logo-google-maps"></div>
           <div class="rating-score" data-google-rating><span class="rating-loading">&hellip;</span></div>
           <div class="rating-meta" data-google-count>Loading Google rating</div>
         </div>

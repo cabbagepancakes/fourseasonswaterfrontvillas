@@ -73,9 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Pulls the live rating + review count for the homepage
   // "Highly rated by guests" strip. Nothing is hard-coded.
   // -----------------------------------------------
-  // TODO: insert a Google Maps Platform API key with "Places API (New)"
-  // enabled. Restrict the key to this website's domain (HTTP referrer
-  // restriction) and to the Places API (New) only.
+  // The key is restricted by HTTP referrer, so both the apex and www
+  // domains must be allowed on it (www currently 301s to the apex).
+  // Rating and count must not be cached (Google Maps Platform terms).
   const GOOGLE_PLACES_API_KEY = 'AIzaSyDUL52UkvBsh5HY1gstyR1NeW3ucCKKML8';
 
   const googleCard  = document.getElementById('rating-google');
