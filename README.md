@@ -39,7 +39,7 @@ fourseasonswaterfrontvillas/
 
 ## Google Analytics
 
-GA4 Measurement ID: `G-1Q2DJEDD4H` — added to all 4 pages.
+GA4 Measurement ID: `G-KMXMYJB8Q7` — added to all 4 pages.
 
 ## Contact Form
 
