@@ -1,96 +1,84 @@
 # Four Seasons Waterfront Villas
 
-Static HTML/CSS/JS rebuild of [fourseasonswaterfrontvillas.com.au](https://fourseasonswaterfrontvillas.com.au/)
+Static HTML/CSS/JS site for [fourseasonswaterfrontvillas.com.au](https://fourseasonswaterfrontvillas.com.au/).
+No framework and no build step — what's in `public/` is what gets served.
 
 ## Project Structure
 
 ```
 fourseasonswaterfrontvillas/
-├── index.html          # Home page
-├── villas.html         # Villas page
-├── nearby.html         # Nearby attractions page
-├── contact.html        # Contact page
-├── css/
-│   └── style.css       # All styles
-├── js/
-│   └── main.js         # Slider, nav, lightbox, animations, contact form
-├── images/             # All site images
-├── form-handler/       # Node.js contact form service (Postmark)
-│   ├── server.js
-│   ├── package.json
-│   └── Dockerfile
-├── docker-compose.yml  # Two services: nginx site + node form handler
-├── nginx.conf          # Nginx config — static files + proxy to form handler
-├── sitemap.xml
-└── README.md
+├── amplify.yml          # AWS Amplify build config (serves public/ as-is)
+├── README.md
+└── public/
+    ├── index.html       # Home page (incl. guest ratings strip)
+    ├── villas.html      # Villas page
+    ├── nearby.html      # Nearby attractions page
+    ├── contact.html     # Contact page (form + map)
+    ├── sitemap.xml
+    ├── css/
+    │   └── style.css    # All styles
+    ├── js/
+    │   └── main.js      # Header, mobile nav, sliders, Google rating, scroll animations
+    └── images/          # All site images and platform logos
 ```
 
-## Docker Services
+The header and footer are duplicated in every page — contact details, nav links
+and the booking URL need updating in all four HTML files.
 
-| Container            | Image         | Port |
-|----------------------|---------------|------|
-| fourseasons_site     | nginx:alpine  | 8082 |
-| fourseasons_forms    | node:18-alpine| 3000 (internal) |
+## Hosting & Deployment
+
+Hosted on **AWS Amplify**, connected to this repo. Pushing to `main` deploys
+automatically — Amplify publishes the `public/` directory (see `amplify.yml`).
+Changes are usually live within a minute or two.
 
 ## Dependencies (CDN — no install required)
 
 - [Google Fonts](https://fonts.google.com/) — Open Sans + Playfair Display
 - [Font Awesome 6](https://fontawesome.com/) — Icons
+- [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) — contact form spam protection
+- Tripadvisor ratings widget — homepage ratings strip
 
 ## Google Analytics
 
 GA4 Measurement ID: `G-KMXMYJB8Q7` — added to all 4 pages.
 
+## Guest Ratings (homepage)
+
+- **Booking.com / Expedia** — static scores in `index.html`. Update the
+  "As at" date whenever a score changes.
+- **Google** — live rating and review count from the Places API (New), fetched
+  in `js/main.js`. The API key is public by necessity, so it must stay
+  restricted in Google Cloud Console to the site's domains (apex and www) and to
+  the Places API. Google's terms require the Google Maps logo alongside the
+  rating and forbid caching the values.
+- **Tripadvisor** — live widget.
+
 ## Contact Form
 
-Sends via Postmark API. Config is in `form-handler/server.js`:
-- **From:** noreply@fortewebdesign.com.au
-- **To:** Cassandra.mason2@bigpond.com
-- **Endpoint:** POST /api/contact
+`contact.html` posts to the Peabody Digital forms service
+(`https://forms.peabodydigital.com.au`, tenant `fourseasons-81fc17f4e78a`) with
+a Turnstile check, via the inline script at the bottom of the page. Recipient
+addresses are configured in the forms service, not in this repo.
+
+## SEO
+
+Each page has its own `<title>`, meta description, canonical URL and Open
+Graph / Twitter tags — keep these in sync when changing a page's title or
+description. `index.html` also carries `LodgingBusiness` Schema.org data. Bump
+the `<lastmod>` dates in `sitemap.xml` when page content changes.
 
 ## Local Development
 
-Open `index.html` directly in your browser for layout review.
-
-To test the contact form locally you need Docker running:
-```bash
-docker compose up -d --build
-# Then open http://localhost:8082
-```
-
-## GitHub Repository
-
-https://github.com/trustedsamurai/linode-server-sites1
-
-This site lives as a subfolder inside the `linode-server-sites1` repo:
-`linode-server-sites1/fourseasonswaterfrontvillas/`
-
-## Pushing Changes (from Windows)
-
-```powershell
-# 1. Copy updated files into the cloned repo folder
-Copy-Item -Recurse -Force "C:\Users\johnf\Dropbox\forte websites\Github sites\fourseasonswaterfrontvillas\*" "C:\Users\johnf\linode-server-sites1\fourseasonswaterfrontvillas\"
-
-# 2. Commit and push
-cd "C:\Users\johnf\linode-server-sites1"
-git add fourseasonswaterfrontvillas/
-git commit -m "Update fourseasonswaterfrontvillas"
-git push origin main
-```
-
-## Deploying to Linode (after pushing)
-
-SSH into the Linode server, then:
+Open `public/index.html` directly in a browser, or serve the folder:
 
 ```bash
-cd ~/sites
-git pull origin main
-
-cd ~/sites/fourseasonswaterfrontvillas
-docker compose down
-docker compose up -d --build
+python3 -m http.server -d public 8000
+# then open http://localhost:8000
 ```
+
+The Google rating won't load locally (the API key is restricted to the live
+domains), and the contact form will submit to the live forms service.
 
 ---
 
-Built by [ForteWebDesign.com.au](https://fortewebdesign.com.au)
+Originally built by [ForteWebDesign.com.au](https://fortewebdesign.com.au)
